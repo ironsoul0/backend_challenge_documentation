@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv='X-UA-Compatible' content='IE=11' />
+    <title>Docbox</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='css/base.css' rel='stylesheet' />
+    <link href='css/style.css' rel='stylesheet' />
+    <link href='css/railscasts.css' rel='stylesheet' />
+  </head>
+  <body>
+    <!--START--><div id='app'><div class="container unlimiter" data-reactroot="" data-reactid="1" data-react-checksum="-2064579650"><div class="fixed-top fixed-right space-left16" data-reactid="2"><div class="fill-light col6 pin-right" data-reactid="3"></div></div><div class="space-top5 scroll-styled overflow-auto pad1 width16 sidebar fixed-left fill-dark dark" data-reactid="4"><div class="pad0x small" data-reactid="5"></div></div><div class="space-left16" data-reactid="6"><div class="" data-reactid="7"><div class="clearfix" data-reactid="8"><div data-title="Marketplace" class="keyline-top section contain clearfix " data-reactid="9"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="10"><h2 id="marketplace">Marketplace</h2>
+<p>This is a documentation for API
+which is a part of Shopify Backend
+Challenge. Base URL for this API is
+<a href="https://shopify-challenge-backend.herokuapp.com">https://shopify-challenge-backend.herokuapp.com</a></p>
+</div></div><div data-title="Get all products" class="keyline-top section contain clearfix " data-reactid="11"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="12"><h3 id="get-all-products">Get all products</h3>
+<p>Getting all products available in
+marketplace. Also you can pass an argument to only return products with available inventory. </p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>only_available</code></td>
+<td>(optional) should be equal to '1' if you want to only return products with available inventory.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="13"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/products/all_products</div>
+    </div>
+<h4 id="example-request-body">Example request body</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"only_available"</span>: <span class="hljs-string">"1"</span>
+}</pre>
+<h4 id="example-response">Example response</h4>
+<pre class='hljs'>[
+    {
+        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5c3d627f2778a902af7c5696"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"water"</span>,
+        <span class="hljs-attr">"price"</span>: <span class="hljs-number">30</span>,
+        <span class="hljs-attr">"inventory_count"</span>: <span class="hljs-number">4</span>,
+        <span class="hljs-attr">"__v"</span>: <span class="hljs-number">0</span>
+    },
+    {
+        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5c3d635a145ce802bd2dd095"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"bread"</span>,
+        <span class="hljs-attr">"price"</span>: <span class="hljs-number">12</span>,
+        <span class="hljs-attr">"inventory_count"</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">"__v"</span>: <span class="hljs-number">0</span>
+    },
+    {
+        <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5c3d65b71a0e3f0301c11d06"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"milk"</span>,
+        <span class="hljs-attr">"price"</span>: <span class="hljs-number">5</span>,
+        <span class="hljs-attr">"inventory_count"</span>: <span class="hljs-number">9</span>,
+        <span class="hljs-attr">"__v"</span>: <span class="hljs-number">0</span>
+    }
+]</pre>
+</div></div><div data-title="Single product" class="keyline-top section contain clearfix " data-reactid="14"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="15"><h3 id="single-product">Single product</h3>
+<p>Returns information about one product
+based on its title.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>(required) title of the product.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="16"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>GET</div>
+      <div class='pad0 code small endpoint-url'>/products/single_product</div>
+    </div>
+<h4 id="example-request-body-1">Example request body</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"duck"</span>
+}</pre>
+<h4 id="example-response-product-with-such-title-exists">Example response (product with such title exists)</h4>
+<pre class='hljs'>{
+    <span class="hljs-attr">"_id"</span>: <span class="hljs-string">"5c3d95655fea3302750818a3"</span>,
+    <span class="hljs-attr">"title"</span>: <span class="hljs-string">"duck"</span>,
+    <span class="hljs-attr">"price"</span>: <span class="hljs-number">11</span>,
+    <span class="hljs-attr">"inventory_count"</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-attr">"__v"</span>: <span class="hljs-number">0</span>
+}</pre>
+<h4 id="example-response-product-with-such-title-does-not-exist">Example response (product with such title does not exist)</h4>
+<pre class='hljs'>{
+    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"No product with such title"</span>
+}</pre>
+</div></div><div data-title="Purchase a product" class="keyline-top section contain clearfix " data-reactid="17"><div class="space-bottom8 col6 pad2x prose clip" data-reactid="18"><h3 id="purchase-a-product">Purchase a product</h3>
+<p>Decreasing the inventory count of the
+product by 1, if possible.</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td>(required) title of the product.</td>
+</tr>
+</tbody>
+</table>
+</div><div class="space-bottom4 col6 pad2 prose clip fill-light space-top5" data-reactid="19"><div class='endpoint dark fill-dark round '>
+      <div class='round-left pad0y pad1x fill-lighten0 code small endpoint-method'>PUT</div>
+      <div class='pad0 code small endpoint-url'>/products/purchase_product</div>
+    </div>
+<h4 id="example-request-body-2">Example request body</h4>
+<pre class='hljs'>{
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"milk"</span>
+}</pre>
+<h4 id="example-response-product-with-such-title-exists-and-inventory-count-is-greater-than-0">Example response (product with such title exists and inventory count is greater than 0)</h4>
+<pre class='hljs'>{
+    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Purchase completed"</span>,
+    <span class="hljs-attr">"new_inventory_count"</span>: <span class="hljs-number">8</span>
+}</pre>
+<h4 id="example-response-product-with-such-title-exists-and-inventory-count-equals-to-0">Example response (product with such title exists and inventory count equals to 0)</h4>
+<pre class='hljs'>{
+    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Inventory count of the product is zero"</span>
+}</pre>
+<h4 id="example-response-product-with-such-title-does-not-exist-1">Example response (product with such title does not exist)</h4>
+<pre class='hljs'>{
+    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"No product with such title"</span>
+}</pre>
+</div></div></div></div></div><div class="fill-dark dark bottom-shadow fixed-top pad0 width16" data-reactid="20"><a href="/" class="active space-top1 space-left1 pin-topleft icon round dark pad0 fill-red" data-reactid="21"></a><div class="strong small pad0
+          
+          space-left4 line-height15" data-reactid="22">Marketplace API Docs</div></div></div></div><!--STOP-->
+    <script src='bundle.js'></script>
+  </body>
+</html>
