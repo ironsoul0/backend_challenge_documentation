@@ -4,6 +4,8 @@ This is a documentation for API
 which is a part of Shopify Backend
 Challenge. Base URL for this API is
 https://shopify-challenge-backend.herokuapp.com
+Source code can be found at
+https://github.com/ironsoul0/backend_challenge
 
 ### Get all products
 
